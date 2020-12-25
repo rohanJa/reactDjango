@@ -4,6 +4,3 @@ build/
 *.sqlite3
 migrations/
 __pycache__/
-todo/
-demoApp/
-manage.py
