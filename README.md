@@ -21,6 +21,8 @@ npm install
 Activate the virtualenv
 run in terminal :-
 ```
+python manage.py makemigrations
+python manage.py migrate
 python manage.py shell
 ```
 The above command will run a shell inside the project.
