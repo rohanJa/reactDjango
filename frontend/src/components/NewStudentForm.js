@@ -33,6 +33,11 @@ class NewStudentForm extends React.Component {
     });
   };
 
+  /* 
+    editStudent() function is executed when we want to edit the given data in the student list so it will invoke it using the put 
+    method of axios.
+  */ 
+
   editStudent = e => {
     e.preventDefault();
     axios.put(API_URL + this.state.pk, this.state).then(() => {
@@ -41,6 +46,10 @@ class NewStudentForm extends React.Component {
     });
   };
 
+  /*
+    defaultEmpty() function is invoked to fill the input value of the input field.
+  */ 
+  
   defaultIfEmpty = value => {
     return value === "" ? "" : value;
   };

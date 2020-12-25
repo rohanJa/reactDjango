@@ -10,11 +10,17 @@ class ConfirmRemovalModal extends Component {
     modal: false
   };
 
+  /*
+    the toggle() method as the name suggest invert the state of "modal" variable as it is used when 
+  */ 
+
   toggle = () => {
     this.setState(previous => ({
       modal: !previous.modal
     }));
   };
+
+  // deleteStudent() will delete the user with given primary key and resetState() method will call the fresh list of student present
 
   deleteStudent = pk => {
     axios.delete(API_URL + pk).then(() => {

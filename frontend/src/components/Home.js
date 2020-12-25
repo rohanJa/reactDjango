@@ -16,9 +16,18 @@ class Home extends Component {
     this.resetState();
   }
 
+  /* 
+    getStudents() function will get the data through REST API defined in django .
+  */ 
+
   getStudents = () => {
     axios.get(API_URL).then(res => this.setState({ students: res.data }));
   };
+
+  /*
+    This resetState() method is invoked when a user is removed/added so to render the fresh page of with the list
+    of user present. 
+  */
 
   resetState = () => {
     this.getStudents();
