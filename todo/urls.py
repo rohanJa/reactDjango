@@ -20,7 +20,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('',TemplateView.as_view(template_name='index.html')),
+    # url('',TemplateView.as_view(template_name='index.html')),   #do not uncomment this will raise a series of unhandled issues.
     url(r'^api/students/$', views.students_list),
     url(r'^api/students/([0-9])$', views.students_detail),
 ]
