@@ -17,11 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from demoApp import views
 from django.views.generic import TemplateView
+from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url('',TemplateView.as_view(template_name='index.html')),   #do not uncomment this will raise a series of unhandled issues.
     url(r'^api/students/$', views.students_list),
-    url(r'^api/students/([0-9])$', views.students_detail),
+    url(r'^api/students/([0-9])$', views.StudentDetail.as_view()),
+    url(r'^current_user/',views.current_user),
+    url(r'^token-auth/', obtain_jwt_token),
 ]
 
