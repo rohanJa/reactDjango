@@ -8,11 +8,8 @@ from django.contrib.auth.models import User
 from rest_framework import permissions, status
 from rest_framework.views import APIView
 
-@api_view(('GET',))
+@api_view(['GET','POST'])
 def students_list(request):
-    print("Roah")
-    # print((vars(request)))
-    print(request.method)
     if request.method == 'GET':
         data = Student.objects.all()
 
@@ -35,15 +32,6 @@ class StudentDetail(APIView):
     '''
     
     permission_classes = (permissions.IsAuthenticated,)
-
-
-    def post(self, request):
-        serializer = StudentSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status=status.HTTP_201_CREATED)
-            
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk):
         try:
