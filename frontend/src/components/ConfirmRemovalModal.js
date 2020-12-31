@@ -23,10 +23,12 @@ class ConfirmRemovalModal extends Component {
   // deleteStudent() will delete the user with given primary key and resetState() method will call the fresh list of student present
 
   deleteStudent = pk => {
-    axios.delete(API_URL + pk).then(() => {
+    axios.delete(API_URL + pk,{headers: {
+      'Authorization':`JWT ${localStorage.getItem('token')}`      
+    }}).then(() => {
       this.props.resetState();
       this.toggle();
-    });
+    }).catch(err => console.log(err));
   };
 
   render() {
