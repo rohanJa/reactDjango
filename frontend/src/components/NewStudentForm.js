@@ -27,7 +27,10 @@ class NewStudentForm extends React.Component {
 
   createStudent = e => {
     e.preventDefault();
-    axios.post(API_URL, this.state).then(() => {
+    axios.post(API_URL, this.state,{
+      headers: {
+        'Authorization':`JWT ${localStorage.getItem('token')}`      
+      }}).then(() => {
       this.props.resetState();
       this.props.toggle();
     });
@@ -40,7 +43,10 @@ class NewStudentForm extends React.Component {
 
   editStudent = e => {
     e.preventDefault();
-    axios.put(API_URL + this.state.pk, this.state).then(() => {
+    axios.put(API_URL + this.state.pk, this.state,{
+      headers: {
+        'Authorization':`JWT ${localStorage.getItem('token')}`      
+      }}).then(() => {
       this.props.resetState();
       this.props.toggle();
     });

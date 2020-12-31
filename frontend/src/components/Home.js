@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Col, Container, Row } from "reactstrap";
 import StudentList from "./StudentList";
 import NewStudentModal from "./NewStudentModal";
@@ -21,7 +21,12 @@ class Home extends Component {
   */ 
 
   getStudents = () => {
-    axios.get(API_URL).then(res => this.setState({ students: res.data }));
+    axios.get(API_URL
+      ,{
+      headers: {
+        'Authorization':`JWT ${localStorage.getItem('token')}`      
+      }}
+      ).then(res => this.setState({ students: res.data }));
   };
 
   /*
@@ -35,6 +40,10 @@ class Home extends Component {
 
   render() {
     return (
+      <Fragment>
+      <center><h4 >
+      <b>Welcome  </b><b style={{color:'blue'}}>{this.props.username}</b>
+  </h4></center>
       <Container style={{ marginTop: "20px" }}>
         <Row>
           <Col>
@@ -50,6 +59,7 @@ class Home extends Component {
           </Col>
         </Row>
       </Container>
+      </Fragment>
     );
   }
 }
