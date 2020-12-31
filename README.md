@@ -11,7 +11,7 @@ To intialize the project in the local server state .
 ## Steps to run local project 
 First we create a django project than we will install:
 ```
-pip install requirements.txt
+pip install -Ur requirements.txt
 ```
 To intialize frontend use :-
 ```
@@ -40,3 +40,5 @@ then execute
 cd frontend
 npm start
 ```
+## About the project :-
+In this we use JWT authentication .This generate a token and stored in local storage and after logout its token is removed .We used our custom jwt_payload_response_handler .To generate our custom token which include the username.
