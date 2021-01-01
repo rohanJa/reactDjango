@@ -7,6 +7,7 @@ import ConfirmRemovalModal from "./ConfirmRemovalModal";
 class StudentList extends Component {
   render() {
     const students = this.props.students;
+
     return (
       <Table dark>
         <thead>
